@@ -10,15 +10,13 @@ var currentHumidty = $("#humidity");
 var currentWSpeed = $("#wind-speed");
 var currentUvindex = $("#uv-index");
 var myCities = [];
-var apiKey = "cd7b46258d74ce0db68ce9bc4d5cbf2e";
+var apiKey = "d91f911bcf2c0f925fb6535547a5ddc9";
 
-
-
-function getCities() {
-  var storage = localStorage.getItem('places')
+function getCities () {
+  var storage = localStorage.getItem('placea')
   if (storage) {
     myCities = JSON.parse(storage)
-    myCities.forEach(city => { printCities(city) })
+    myCities.forEach(city => {printCities(city)})
   }
 }
 
