@@ -10,13 +10,15 @@ var currentHumidty = $("#humidity");
 var currentWSpeed = $("#wind-speed");
 var currentUvindex = $("#uv-index");
 var myCities = [];
-var apiKey = "d91f911bcf2c0f925fb6535547a5ddc9";
+var apiKey = "cd7b46258d74ce0db68ce9bc4d5cbf2e";
 
-function getCities () {
-  var storage = localStorage.getItem('placea')
+
+
+function getCities() {
+  var storage = localStorage.getItem('places')
   if (storage) {
     myCities = JSON.parse(storage)
-    myCities.forEach(city => {printCities(city)})
+    myCities.forEach(city => { printCities(city) })
   }
 }
 
@@ -112,7 +114,6 @@ function currentWeather(weatherUrl) {
           return response.json();
         })
         .then(function (data) {
-          // UV index Backround color
           $('#uv-index').text(" " + data.value)
           if (data.value <= 2) {
             $('#uv-index').css('background-color', 'yellow')
