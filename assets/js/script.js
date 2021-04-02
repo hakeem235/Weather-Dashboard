@@ -23,7 +23,7 @@ function getCities() {
 getCities();
 
 function printCities(city) {
-  placesEl.append('<li>' + city + '</li>');
+  placesEl.append('<li>' + (city).toUpperCase() + '</li>');
   $(placesEl).children().attr("class", "list-group-item")
   $('.list-group').css('visibility', 'visible');
   $('.btn-secondary').css('visibility', 'visible');
