@@ -12,6 +12,8 @@ var currentUvindex = $("#uv-index");
 var myCities = [];
 var apiKey = "cd7b46258d74ce0db68ce9bc4d5cbf2e";
 
+
+
 function getCities() {
   var storage = localStorage.getItem('places')
   if (storage) {
@@ -40,8 +42,6 @@ $('#places').on('click', '.list-group-item', function () {
   $('#mainCity').show();
   $('#future-weather').show();
 })
-
-
 
 searchButton.click(function () {
   //get name and its value
@@ -127,7 +127,6 @@ function currentWeather(weatherUrl) {
         })
     })
 }
-
 // get five day forecast
 function fiveDayForecast(city) {
   var fiveDay = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${apiKey}`
