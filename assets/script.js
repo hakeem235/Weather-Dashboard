@@ -127,3 +127,39 @@ function currentWeather(weatherUrl) {
         })
     })
 }
+
+// get five day forecast
+function fiveDayForecast(city) {
+  var fiveDay = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${apiKey}`
+  fetch(fiveDay)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      for (i = 0; i < 5; i++) {
+        var date = new Date((data.list[((i + 1) * 8) - 1].dt) * 1000).toLocaleDateString();
+        var iconcode = data.list[((i + 1) * 8) - 1].weather[0].icon;
+        var iconurl = "https://openweathermap.org/img/wn/" + iconcode + ".png";
+        var temp = data.list[((i + 1) * 8) - 1].main.temp.toFixed(0);
+        var humidity = data.list[((i + 1) * 8) - 1].main.humidity;
+
+        $("#fDate" + i).text(date);
+        $("#fImg" + i).html("<img src=" + iconurl + ">");
+        $("#fTemp" + i).text(" " + temp + " °C");
+        $("#fHumidity" + i).text(" " + humidity + "%");
+
+      }
+
+    });
+}
+
+//Clear the search history from the page
+function clearHistory(event) {
+  event.preventDefault();
+  myCities = [];
+  localStorage.removeItem('places');
+  document.location.reload();
+
+}
+//Click Handlers
+$("#clear-history").on("click", clearHistory);
