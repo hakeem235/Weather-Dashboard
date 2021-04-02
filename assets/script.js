@@ -12,7 +12,34 @@ var currentUvindex = $("#uv-index");
 var myCities = [];
 var apiKey = "cd7b46258d74ce0db68ce9bc4d5cbf2e";
 
+function getCities() {
+  var storage = localStorage.getItem('places')
+  if (storage) {
+    myCities = JSON.parse(storage)
+    myCities.forEach(city => { printCities(city) })
+  }
+}
 
+getCities();
+
+function printCities(city) {
+  placesEl.append('<li>' + (city).toUpperCase() + '</li>');
+  $(placesEl).children().attr("class", "list-group-item")
+  $('.list-group').css('visibility', 'visible');
+  $('.btn-secondary').css('visibility', 'visible');
+}
+
+
+$('#places').on('click', '.list-group-item', function () {
+  let clickedCity = ''
+  clickedCity = $(this).html();
+  console.log(clickedCity)
+  var weatherUrl = generateURL(clickedCity);
+  currentWeather(weatherUrl);
+  fiveDayForecast(clickedCity);
+  $('#mainCity').show();
+  $('#future-weather').show();
+})
 
 
 
