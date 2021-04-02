@@ -1,3 +1,22 @@
 li:hover{
     cursor: pointer;
 }
+
+.moderate{
+    background-color: yellow;
+}
+
+.high{
+    background-color: orange;
+}
+
+.veryHigh{
+    background-color:red;
+}
+.extreme {
+    background-color:violet;
+}
+
+#mainCity, #future-weather {
+    display: none;
+}
