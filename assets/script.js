@@ -114,6 +114,7 @@ function currentWeather(weatherUrl) {
           return response.json();
         })
         .then(function (data) {
+          // UV index Backround color
           $('#uv-index').text(" " + data.value)
           if (data.value <= 2) {
             $('#uv-index').css('background-color', 'yellow')
