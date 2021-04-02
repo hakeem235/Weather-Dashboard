@@ -30,7 +30,7 @@ function printCities(city) {
 }
 
 
-
+// display the weather from the list 
 $('#places').on('click', '.list-group-item', function () {
   let clickedCity = ''
   clickedCity = $(this).html();
