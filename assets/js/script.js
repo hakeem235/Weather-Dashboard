@@ -16,18 +16,19 @@ function getCities() {
   var storage = localStorage.getItem('places')
   if (storage) {
     myCities = JSON.parse(storage)
-    myCities.forEach(city => {printCities(city)})
+    myCities.forEach(city => { printCities(city) })
   }
 }
 
 getCities();
 
 function printCities(city) {
-  placesEl.append('<li>' + (city).toUpperCase() + '</li>');
+  placesEl.append('<li>' + city + '</li>');
   $(placesEl).children().attr("class", "list-group-item")
   $('.list-group').css('visibility', 'visible');
   $('.btn-secondary').css('visibility', 'visible');
 }
+
 
 
 $('#places').on('click', '.list-group-item', function () {
