@@ -2,12 +2,13 @@
 
 ## Table of contents
 
-General info
-Screenshot
-Deployment of application 
-##General Info
+- General info
+- Screenshot
+- Deployment of application 
+
+## General Info
 Weather Dashbord was develop by using HTML, Bootstrap, CSS, JavaScript and third party API [Open weather API](https://openweathermap.org)
-##Screenshot
+## Screenshot
 
 
 ### Start Page
